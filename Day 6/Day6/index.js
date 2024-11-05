@@ -6,5 +6,5 @@ function getdata(){
             console.log(response)
             const data=document.getElementById("parent");
             data.innerHTML= `${response.login}<br> ${response.id}`;
-        })
+          })
 }
