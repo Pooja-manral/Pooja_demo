@@ -1,4 +1,4 @@
-.{
+_{
     margin:0px;
     padding:0px;
     box-sizing: border-box;
@@ -7,7 +7,7 @@
 
 body{
      background-color: rgb(220, 245, 245);
-}
+    }
 #heading
 { background-color: aqua;
     font-size: 50px;
@@ -28,7 +28,6 @@ table{
 }
 #container
 {
-    width: 100%;
-    display: block;
-    align-items: center;
+   display: flex;
+   justify-content: center;
 }
