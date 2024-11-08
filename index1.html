@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+  }
+  .container {
+    background-color: lightpink;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 300px;
+  }
+  input, select {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+  }
+  button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 48%;
+  }
+  button.submit {
+    background-color: #28a745;
+    color: white;
+  }
+  button.reset {
+    background-color: blue;
+    color: white;
+  }
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Enter Username" required>
+  <span id="usernameError" class="error"></span><br>
+  <input type="password" id="password" placeholder="Enter Password" required>
+  <span id="passwordError" class="error"></span><br>
+  <div>
+    <button class="submit" onclick="login()">Submit</button>
+    <button class="reset" onclick="resetForm()">Reset</button>
+  </div>
+</div>
+
+<script>
+ 
+  function resetForm() {
+    document.getElementById("username").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("usernameError").textContent = "";
+    document.getElementById("passwordError").textContent = "";
+  }
+
+  function login() {
+    document.getElementById("usernameError").textContent = "";
+    document.getElementById("passwordError").textContent = "";
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    let isValid = true;
+
+    
+    if (username === "") {
+      document.getElementById("usernameError").textContent = "Username is required.";
+      isValid = false;
+    }
+
+    if (password === "") {
+      document.getElementById("passwordError").textContent = "Password is required.";
+      isValid = false;
+    } else if (password.length < 6) {
+      document.getElementById("passwordError").textContent = "Password must be at least 6 characters.";
+      isValid = false;
+    }
+
+    if (isValid) {
+      document.body.innerHTML = `
+        <div class="container">
+          <h2>Currency Converter</h2>
+          <input type="number" id="amount" placeholder="Enter Amount">
+          <select id="currency1">
+            <option value="USD">USD (American Dollar)</option>
+          </select>
+          <select id="currency2">
+            <option value="INR">INR (Indian Rupee)</option>
+          </select>
+          <button onclick="convertCurrency()">Convert</button>
+          <p id="result"></p>
+        </div>
+      `;
+    }
+  }
+
+  
+  function convertCurrency() {
+    const amount = parseFloat(document.getElementById("amount").value);
+    const rate = 84.33;
+    const convertedAmount = amount * rate;
+
+
+    if (!isNaN(amount) && amount > 0) {
+      document.getElementById("result").innerText = `Converted Amount: ₹${convertedAmount.toFixed(2)} INR`;
+    } else {
+      document.getElementById("result").innerText = "Please enter a valid amount.";
+    }
+  }
+</script>
+
+</body>
+</html>
