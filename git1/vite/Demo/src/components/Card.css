@@ -1,4 +1,4 @@
-/* .Card{
+.Card{
     border: 2px solid red;
     width: 300px;
     display: flex;
@@ -9,4 +9,4 @@
 .card img{
     height:15rem;
     width:15rem;
-} */
+}
