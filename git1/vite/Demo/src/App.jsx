@@ -78,16 +78,26 @@
 // }
 
 // export default App
-import React from "react";
+// import React from "react";
 
-import Movie from "./components/Movie";
+// import Movie from "./components/Movie";
+// function App() {
+//     return (
+//         <div>
+//             <h1 style={{ textAlign: "center", margin: "20px 0" }}>Movies List</h1>
+//             <Movie />
+//         </div>
+//     );
+// }
+
+// export default App;
+import React from 'react'
+import UseRef from './components/UseRef.jsx';
+
 function App() {
-    return (
-        <div>
-            <h1 style={{ textAlign: "center", margin: "20px 0" }}>Movies List</h1>
-            <Movie />
-        </div>
-    );
+  return (
+   <UseRef/>
+  );
 }
 
-export default App;
+export default App
